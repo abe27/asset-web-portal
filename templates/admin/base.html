@@ -1,4 +1,8 @@
 {% extends "admin/base.html" %}
+{% load static %}
+{% block extrastyle %}
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" /> {% endcomment %}
+{% endblock %}
 {% block sidebar %}
     {{ block.super }}
 {% endblock %}
