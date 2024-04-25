@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.shortcuts import redirect
-from django.urls import path
+from django.urls import include, path
 
 admin.site.site_header = settings.SITE_HEADER
 admin.site.site_title = settings.SITE_TITLE
@@ -25,5 +25,8 @@ admin.site.index_title = settings.SITE_INDEX_TITLE
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/', include('djoser.urls')),
+    # path('auth/', include('djoser.urls.jwt')),
+    path('auth/', include('djoser.urls.authtoken')),
     path('', lambda request: redirect('admin/', permanent=True)),
 ]
