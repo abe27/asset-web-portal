@@ -28,5 +28,6 @@ urlpatterns = [
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
     path('auth/', include('djoser.urls.authtoken')),
+    path('api/', include('api.urls')),
     path('', lambda request: redirect('admin/', permanent=True)),
 ]
