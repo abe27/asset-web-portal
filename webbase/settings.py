@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = f'{os.getenv("SECRET_KEY")}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.getenv("DEBUG_MODE") == "dev")
+DEBUG = bool(os.getenv("DEBUG", default=0))
 
-ALLOWED_HOSTS = [f'{os.getenv("ALLOWED_HOSTS")}']
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(" ")
 
 SITE_HEADER = os.getenv("SITE_HEADER")
 SITE_TITLE = os.getenv("SITE_TITLE")
