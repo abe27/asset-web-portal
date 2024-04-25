@@ -148,6 +148,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Default User Management
 AUTH_USER_MODEL = "users.UserModel"
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
