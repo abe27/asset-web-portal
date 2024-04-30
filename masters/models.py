@@ -10,7 +10,7 @@ NETWORK_CHOICE = (
     ("2", "Static IP"),
 )
 
-class AssetType(models.Model):
+class AssetType(models.Model):### Product TAG
     name = models.CharField(max_length=255, verbose_name=_("ชื่อประเภทสินทรัพย์"))
     description = models.TextField(verbose_name=_("รายละเอียด"), blank=True, null=True)
     is_active = models.BooleanField(verbose_name=_("สถานะ"), default=True)
@@ -25,7 +25,7 @@ class AssetType(models.Model):
         verbose_name = _("ประเภทสินทรัพย์")
         verbose_name_plural = _("ประเภทสินทรัพย์")
 
-class Supplier(models.Model):
+class Supplier(models.Model):### partner
     name = models.CharField(max_length=255, verbose_name=_("ชื่อผู้ผลิต"))
     address = models.TextField(verbose_name=_("ที่อยู่"), blank=True, null=True)
     tel_no = models.CharField(max_length=25, verbose_name=_("เบอร์โทรศัพท์"), blank=True, null=True)
@@ -43,7 +43,7 @@ class Supplier(models.Model):
         verbose_name = _("บริษัทจัดจำหน่าย")
         verbose_name_plural = _("บริษัทจัดจำหน่าย")
 
-class StockAsset(models.Model):
+class StockAsset(models.Model):### Inventory
     asset_type = models.ForeignKey(AssetType, verbose_name=_("ประเภทสินทรัพย์"), on_delete=models.CASCADE)
     name = models.CharField(max_length=255, verbose_name=_("ชื่อสินทรัพย์"))
     description = models.TextField(verbose_name=_("รายละเอียด"), blank=True, null=True)
